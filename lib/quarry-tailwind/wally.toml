@@ -8,7 +8,7 @@ repository = "https://github.com/quarry-luau/quarry-tailwind"
 homepage = "https://github.com/quarry-luau/quarry-tailwind"
 registry = "https://github.com/UpliftGames/wally-index"
 realm = "shared"
-exclude = ["test", "React.luau", "ReactRoblox.luau"]
+exclude = ["test", "examples", "React.luau", "ReactRoblox.luau"]
 
 [dependencies]
 React = "jsdotlua/react@^17.2.1"
