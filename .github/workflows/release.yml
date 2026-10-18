@@ -1,0 +1,68 @@
+name: Release
+
+on:
+  release:
+    types: [published]
+  # Publishes a release again (to Wally, and its model), as for a release whose first publish failed.
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: The release's tag, such as v0.1.0
+        required: true
+
+permissions:
+  contents: write
+
+env:
+  TAG: ${{ github.event.release.tag_name || inputs.tag }}
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.TAG }}
+
+      - uses: CompeyDev/setup-rokit@v0.2.1
+        with:
+          cache: "true"
+
+      - name: Check the version matches the tag
+        run: |
+          grep -q "^version = \"${TAG#v}\"$" lib/quarry-tailwind/wally.toml \
+            || { echo "lib/quarry-tailwind/wally.toml is not version ${TAG#v}"; exit 1; }
+
+      - name: Install packages
+        run: lune run install
+
+      - name: Check
+        run: lune run check
+
+      - name: Attach the model to the release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release upload "$TAG" build/quarry-tailwind.rbxm --clobber
+
+      - name: Publish to Wally
+        env:
+          WALLY_AUTH_TOKEN: ${{ secrets.WALLY_AUTH_TOKEN }}
+        run: |
+          version="${TAG#v}"
+          published() {
+            curl -fsS -H "Wally-Version: 0.3.2" "https://api.wally.run/v1/package-metadata/quarry-luau/quarry-tailwind" 2>/dev/null \
+              | grep -q "\"version\":\"$version\""
+          }
+          if published; then
+            echo "quarry-luau/quarry-tailwind@$version is already on Wally"
+            exit 0
+          fi
+          wally login --token "$WALLY_AUTH_TOKEN"
+          wally publish --project-path lib/quarry-tailwind
+          # wally publish exits 0 even when the registry refuses; the registry says whether it took it.
+          for attempt in 1 2 3 4 5 6; do
+            published && break
+            sleep 10
+          done
+          published || { echo "quarry-luau/quarry-tailwind@$version is not on Wally after publishing"; exit 1; }
+          echo "Published quarry-luau/quarry-tailwind@$version"
