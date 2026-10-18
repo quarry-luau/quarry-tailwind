@@ -259,7 +259,7 @@ A component that draws its own instances can still sit in the layout and the tex
 | Variants | `hover`, `active`, `focus`, `focus-visible`, `disabled`, `placeholder`, `aria-pressed`, `data-[key=value]`, `data-open`, `data-closed`, `sm` to `xl`, `motion-reduce`, `pointer-coarse` |
 
 Values can be arbitrary (`p-[10px]`, `bg-[#fb5c49]`) or a custom property of the theme
-(`rounded-(--radius)`). Classes that only make sense in a browser (`cursor-*`, `select-*`,
+(`rounded-(--radius-lg)`). Classes that only make sense in a browser (`cursor-*`, `select-*`,
 `outline-none`, `tracking-*` among them) compile to nothing on purpose, so web class strings work
 unchanged; the enter and exit classes of tailwindcss-animate (`animate-in fade-in-0`) do too, since
 `Presence` draws them.
@@ -306,7 +306,7 @@ account and change the ids in `src/Assets.luau`.
 | `useTween(goal, timing, initial?)` | A binding that tweens to `goal` |
 | `bezier(x1, y1, x2, y2)`, `linear(points)`, `spring` | Easings |
 | `frame` | The signal animations step on: PreRender in a game, Heartbeat in edit mode |
-| `color(css)` | A CSS colour as the theme's `{ r, g, b, a }` |
+| `color(css)` | A CSS colour as the theme's `{ r, g, b, a }`; raises on text that is not one |
 
 Types: `Kind`, `Props`, `Choice`, `Variants`, `Preset`, `From`, `Timing`, `Easing`, `Options`,
 `TextStyle`, `TextAround`, `Slot`.
