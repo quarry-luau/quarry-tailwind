@@ -5,6 +5,11 @@ and versions follow [Semantic Versioning](https://semver.org).
 
 ## [Unreleased]
 
+### Changed
+
+- `color(css)` raises on text that is not a CSS colour instead of returning nil, which left the
+  token out of the theme without a word.
+
 ## [0.1.0] - 2026-10-18
 
 First release.

@@ -123,5 +123,5 @@ return {
 	bezier = Bezier.new,
 	linear = require("@self/Motion/Linear").new,
 	spring = require("@self/Motion/Spring").critical,
-	color = require("@self/Compiler/Color").parse,
+	color = require("@self/Compiler/Color").of,
 }

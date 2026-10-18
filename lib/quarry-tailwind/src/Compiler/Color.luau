@@ -135,6 +135,16 @@ function Color.parse(text: string): Rgba?
 	return fromFunction(space, body)
 end
 
+-- The colour `text` names, for a colour written in source (a theme token):
+-- text that is not a colour is a mistake there, so it raises.
+function Color.of(text: string): Rgba
+	local color = Color.parse(text)
+	if color == nil then
+		error(`"{text}" is not a CSS colour`, 2)
+	end
+	return color
+end
+
 -- The colour with its alpha multiplied by `opacity` (`/80` is 0.8).
 function Color.withOpacity(color: Rgba, opacity: number): Rgba
 	return { r = color.r, g = color.g, b = color.b, a = color.a * opacity }

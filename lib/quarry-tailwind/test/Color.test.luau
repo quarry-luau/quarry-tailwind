@@ -65,6 +65,22 @@ local suite: Testing.Suite = function(test, expect)
 		expect.equal(color and Color.withOpacity(color, 0.8).a, 0.8)
 	end)
 
+	test(
+		"of reads a colour in source and raises on anything else",
+		function()
+			expect.deepEqual(
+				Color.of("#fff"),
+				{ r = 255, g = 255, b = 255, a = 1 }
+			)
+			expect.contains(
+				expect.throws(function()
+					Color.of("blue-ish")
+				end),
+				"is not a CSS colour"
+			)
+		end
+	)
+
 	test("text that is not a colour does not parse", function()
 		expect.equal(Color.parse("var(--primary)"), nil)
 		expect.equal(Color.parse("1rem"), nil)
