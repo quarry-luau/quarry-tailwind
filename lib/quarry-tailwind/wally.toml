@@ -1,0 +1,15 @@
+[package]
+name = "quarry-luau/quarry-tailwind"
+description = "Tailwind CSS for Roblox: class strings compiled into the native style engine, for React-Lua"
+version = "0.1.0"
+license = "MIT"
+authors = ["Pedro Cruz"]
+repository = "https://github.com/quarry-luau/quarry-tailwind"
+homepage = "https://github.com/quarry-luau/quarry-tailwind"
+registry = "https://github.com/UpliftGames/wally-index"
+realm = "shared"
+exclude = ["test", "React.luau", "ReactRoblox.luau"]
+
+[dependencies]
+React = "jsdotlua/react@^17.2.1"
+ReactRoblox = "jsdotlua/react-roblox@^17.2.1"

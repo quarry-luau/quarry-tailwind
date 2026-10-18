@@ -1,0 +1,9 @@
+# Generated
+Packages/
+sourcemap.json
+build/
+.cache/
+
+# OS and editor
+.DS_Store
+Thumbs.db

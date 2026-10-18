@@ -1,0 +1,11 @@
+# Development dependencies for type checking the package. Not published.
+[package]
+name = "quarry-luau/quarry-tailwind-dev"
+version = "0.0.0"
+registry = "https://github.com/UpliftGames/wally-index"
+realm = "shared"
+private = true
+
+[dependencies]
+React = "jsdotlua/react@17.2.1"
+ReactRoblox = "jsdotlua/react-roblox@17.2.1"

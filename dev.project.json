@@ -1,0 +1,23 @@
+{
+	"name": "quarry-tailwind-dev",
+	"tree": {
+		"$className": "DataModel",
+		"ReplicatedStorage": {
+			"Packages": {
+				"$path": "Packages"
+			},
+			"Index": {
+				"$className": "Folder",
+				"quarry-tailwind": {
+					"$path": "lib/quarry-tailwind/src"
+				},
+				"React": {
+					"$path": "lib/quarry-tailwind/React.luau"
+				},
+				"ReactRoblox": {
+					"$path": "lib/quarry-tailwind/ReactRoblox.luau"
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,12 @@
+{
+	"files.eol": "\n",
+	"files.insertFinalNewline": true,
+	"[luau]": {
+		"editor.defaultFormatter": "JohnnyMorganz.stylua",
+		"editor.formatOnSave": true
+	},
+	"luau-lsp.platform.type": "roblox",
+	"luau-lsp.sourcemap.enabled": true,
+	"luau-lsp.sourcemap.rojoProjectFile": "dev.project.json",
+	"luau-lsp.ignoreGlobs": ["**/_Index/**", "Packages/**"]
+}
