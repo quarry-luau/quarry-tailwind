@@ -85,10 +85,11 @@ React = "jsdotlua/react@17.2.1"
 ReactRoblox = "jsdotlua/react-roblox@17.2.1"
 ```
 
-> **Note:** the `quarry-luau` scope is waiting for Wally to approve it
-> ([wally-index#131](https://github.com/UpliftGames/wally-index/pull/131)). Until then, take
-> `quarry-tailwind.rbxm` from the [latest release](https://github.com/quarry-luau/quarry-tailwind/releases/latest)
-> and put it next to `React` and `ReactRoblox` modules that return those packages.
+Then `wally install`.
+
+Without Wally, take `quarry-tailwind.rbxm` from the
+[latest release](https://github.com/quarry-luau/quarry-tailwind/releases/latest) and put it next to
+`React` and `ReactRoblox` modules that return those packages.
 
 ## Quick start
 
