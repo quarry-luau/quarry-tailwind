@@ -1,7 +1,7 @@
 [package]
 name = "quarry-luau/quarry-tailwind"
 description = "Tailwind CSS for Roblox: class strings compiled into the native style engine, for React-Lua"
-version = "0.1.0"
+version = "0.1.1"
 license = "MIT"
 authors = ["Pedro Cruz"]
 repository = "https://github.com/quarry-luau/quarry-tailwind"

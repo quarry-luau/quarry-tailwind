@@ -80,7 +80,7 @@ development.
 ```toml
 # wally.toml
 [dependencies]
-Tailwind = "quarry-luau/quarry-tailwind@0.1.0"
+Tailwind = "quarry-luau/quarry-tailwind@0.1.1"
 React = "jsdotlua/react@17.2.1"
 ReactRoblox = "jsdotlua/react-roblox@17.2.1"
 ```

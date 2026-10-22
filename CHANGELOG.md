@@ -5,6 +5,8 @@ and versions follow [Semantic Versioning](https://semver.org).
 
 ## [Unreleased]
 
+## [0.1.1] - 2026-10-22
+
 ### Changed
 
 - `color(css)` raises on text that is not a CSS colour instead of returning nil, which left the
@@ -38,5 +40,6 @@ First release.
   `Portal`, `Layout`, `Text`, `Glyph`; `useText`, `useSlot`, `useViewport`, `useReducedMotion`,
   `useTween`; `bezier`, `linear`, `spring`, `frame` and `color`.
 
-[Unreleased]: https://github.com/quarry-luau/quarry-tailwind/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/quarry-luau/quarry-tailwind/compare/v0.1.1...HEAD
+[0.1.1]: https://github.com/quarry-luau/quarry-tailwind/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/quarry-luau/quarry-tailwind/releases/tag/v0.1.0
