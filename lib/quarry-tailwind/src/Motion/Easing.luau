@@ -16,10 +16,17 @@ export type Nearest = {
 }
 
 local SAMPLES = 99
-local SKIPPED: { [Enum.EasingStyle]: boolean } = {
-	[Enum.EasingStyle.Back] = true,
-	[Enum.EasingStyle.Bounce] = true,
-	[Enum.EasingStyle.Elastic] = true,
+-- The styles that are plain curves from 0 to 1. Back, Bounce and Elastic
+-- overshoot, and newer styles (Spring, Bezier) are refused by GetValue.
+local CANDIDATES: { Enum.EasingStyle } = {
+	Enum.EasingStyle.Linear,
+	Enum.EasingStyle.Sine,
+	Enum.EasingStyle.Quad,
+	Enum.EasingStyle.Cubic,
+	Enum.EasingStyle.Quart,
+	Enum.EasingStyle.Quint,
+	Enum.EasingStyle.Exponential,
+	Enum.EasingStyle.Circular,
 }
 
 local cache: { [string]: Nearest } = {}
@@ -45,11 +52,9 @@ local function search(ease: Bezier.Easing): Nearest
 		direction = Enum.EasingDirection.Out,
 	}
 	local bestDistance = math.huge
-	for _, style in Enum.EasingStyle:GetEnumItems() do
+	for _, style in CANDIDATES do
 		for _, direction in Enum.EasingDirection:GetEnumItems() do
-			local miss = if SKIPPED[style]
-				then math.huge
-				else distance(ease, style, direction)
+			local miss = distance(ease, style, direction)
 			if miss < bestDistance then
 				best = { style = style, direction = direction }
 				bestDistance = miss

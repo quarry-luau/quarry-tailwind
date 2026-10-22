@@ -10,6 +10,12 @@ and versions follow [Semantic Versioning](https://semver.org).
 - `color(css)` raises on text that is not a CSS colour instead of returning nil, which left the
   token out of the theme without a word.
 
+### Fixed
+
+- A `Tw.bezier` transition no longer raises on Studio versions that add easing styles
+  `TweenService:GetValue` refuses (Spring, Bezier): the curve is matched only against the plain
+  styles from Linear to Circular.
+
 ## [0.1.0] - 2026-10-18
 
 First release.
